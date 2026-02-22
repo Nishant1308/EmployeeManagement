@@ -1,6 +1,6 @@
 package com.employee.manage.service;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 import com.employee.manage.dto.EmployeeDto;
 
@@ -10,7 +10,7 @@ public interface EmployeeService {
 	
 	EmployeeDto getEmployeeById(Long empId);
 	
-	List<EmployeeDto>  getAllEmployee();
+	Page<EmployeeDto>  getAllEmployee(int page, int size);
 	
 	EmployeeDto updateEmployee(EmployeeDto empDto);
 	
