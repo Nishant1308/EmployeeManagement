@@ -22,9 +22,11 @@ import com.employee.manage.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthService {
 	
 	private final AuthenticationManager authenticationManager;
