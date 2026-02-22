@@ -1,9 +1,8 @@
 package com.employee.manage.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.employee.manage.dto.EmployeeDto;
@@ -37,9 +36,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<EmployeeDto> getAllEmployee() {
-		List<Employee> employee = repository.findAll();
-		return employee.stream().map((emp) -> mapper.mapToEmployeeDto(emp)).collect(Collectors.toList());
+	public Page<EmployeeDto> getAllEmployee(int page, int size) {
+		Page<Employee> employee = repository.findAll(PageRequest.of(page, size));
+		return employee.map((emp) -> mapper.mapToEmployeeDto(emp));
 	}
 
 	@Override
